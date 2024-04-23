@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kamelet-receiver-function
+spec:
+  selector:
+    app: kamelet-receiver-function
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: http
+      name: http
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kamelet-receiver-function
+  labels:
+    app: kamelet-receiver-function
+spec:
+  securityContext:
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+  - name: kamelet-receiver-function
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      runAsNonRoot: true
+      capabilities:
+        drop:
+        - ALL
+      seccompProfile:
+        type: RuntimeDefault
+    image: registry.ci.openshift.org/openshift/knative-eventing-event-display:knative-nightly
+    imagePullPolicy: Always
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+      name: http

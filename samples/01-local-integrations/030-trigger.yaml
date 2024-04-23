@@ -1,0 +1,11 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: trigger-ping
+spec:
+  broker: kamelet
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: kamelet-receiver-function
