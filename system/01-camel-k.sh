@@ -31,9 +31,3 @@ helm install \
 sleep 5; while echo && kubectl get pods -n default | grep -v -E "(Running|Completed|STATUS)"; do sleep 5; done
 
 kubectl get pods -n default
-
-header_text "Patch until 2.3.1 is out"
-
-kubectl get role camel-k-operator -n default -o json | \
-jq '(.rules[] | select(.apiGroups[] == "eventing.knative.dev" and .resources[] == "triggers").resources) += ["brokers"]' | \
-kubectl apply -f -

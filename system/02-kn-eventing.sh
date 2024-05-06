@@ -43,7 +43,3 @@ kubectl apply --filename $eventing_url/eventing.yaml
 
 header_text "Waiting for Knative Eventing to become ready"
 kubectl wait deployment --all --timeout=-1s --for=condition=Available -n knative-eventing
-
-## This is a bug, and should not be needed, but Camel-K checks only for serving
-# For more details see: https://github.com/apache/camel-k/issues/4962
-kubectl apply -f https://raw.githubusercontent.com/knative/serving/main/config/core/300-resources/service.yaml
