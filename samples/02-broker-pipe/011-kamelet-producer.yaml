@@ -1,0 +1,17 @@
+apiVersion: camel.apache.org/v1
+kind: Pipe
+metadata:
+  name: beer-source-pipe
+spec:
+  source:
+    ref:
+      kind: Kamelet
+      apiVersion: camel.apache.org/v1
+      name: beer-source
+  sink:
+    properties:
+      cloudEventsType: com.corp.my.beer.source
+    ref:
+      kind: Broker
+      apiVersion: eventing.knative.dev/v1
+      name: test-broker-2
