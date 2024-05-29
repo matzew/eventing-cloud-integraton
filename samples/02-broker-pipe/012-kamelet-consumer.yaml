@@ -9,7 +9,7 @@ spec:
       apiVersion: eventing.knative.dev/v1
       name: test-broker-2
     properties:
-      type: com.corp.my.beer.source
+      type: com.corp.my.timer.source
   sink:
     ref:
       kind: Kamelet
