@@ -2,4 +2,4 @@ apiVersion: eventing.knative.dev/v1
 kind: Broker
 metadata:
   namespace: default
-  name: test-broker-2
+  name: kamelet-source-sink

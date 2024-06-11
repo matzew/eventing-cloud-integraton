@@ -1,19 +1,17 @@
 apiVersion: camel.apache.org/v1
 kind: Pipe
 metadata:
-  name: timer-source-pipe
+  name: beer-source-pipe
 spec:
   source:
     ref:
       kind: Kamelet
       apiVersion: camel.apache.org/v1
-      name: timer-source
-    properties:
-      message: Hello Knative Eventing!
+      name: beer-source
   sink:
     properties:
-      cloudEventsType: com.corp.my.timer.source
+      cloudEventsType: com.corp.my.beer.source
     ref:
       kind: Broker
       apiVersion: eventing.knative.dev/v1
-      name: test-broker-2
+      name: kamelet-source

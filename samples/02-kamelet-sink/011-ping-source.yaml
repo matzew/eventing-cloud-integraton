@@ -1,0 +1,12 @@
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: ping-source
+spec:
+  schedule: "* * * * *"
+  data: '{"message": "Hello world!"}'
+  sink:
+    ref:
+      kind: Broker
+      apiVersion: eventing.knative.dev/v1
+      name: kamelet-sink

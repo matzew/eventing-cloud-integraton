@@ -1,4 +1,4 @@
-# Local Camel-K source
+# Apache Camel-K Event Producers with Knative Broker
 
 ## Create the Knative Broker
 
