@@ -1,9 +1,9 @@
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: trigger-ping
+  name: trigger
 spec:
-  broker: kamelet
+  broker: kamelet-source
   subscriber:
     ref:
       apiVersion: v1

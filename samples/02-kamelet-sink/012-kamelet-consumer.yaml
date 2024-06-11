@@ -1,15 +1,15 @@
 apiVersion: camel.apache.org/v1
 kind: Pipe
 metadata:
-  name: log-sink-pipe
+  name: ping-source-consumer-pipe
 spec:
   source:
     ref:
       kind: Broker
       apiVersion: eventing.knative.dev/v1
-      name: test-broker-2
+      name: kamelet-sink
     properties:
-      type: com.corp.my.timer.source
+      type: dev.knative.sources.ping
   sink:
     ref:
       kind: Kamelet

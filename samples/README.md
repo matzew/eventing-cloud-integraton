@@ -1,6 +1,6 @@
 # Apache Camel-K integrations with Knative Eventing
 
-* `01-local-integrations`: Camel-K and a local ticker as source of events for Knative
-* `02-broker-pipe`: Camel-K as producer and consumer for Knative Broker
+* `01-kamelet-source`: Camel-K as event producer for Knative Broker
+* `02-kamelet-sink`: Camel-K as event consumer from Knative Broker
+* `03-kamelet-source-and-sink`: Camel-K as event producer and event consumer for Knative Broker
 * ...
-
